@@ -1,0 +1,113 @@
+@import "mixins/_reset.scss";
+@import "mixins/_mixins.scss";
+@import './transition.scss';
+@import "./variables.scss"; 
+@import './card.scss'; 
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background-color: rgb(236, 237, 239);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+a {
+    color: #1386ff;
+}
+
+a:hover {
+    color: #321fdb;
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+.fl {
+    float: left !important;
+}
+
+.fr {
+    float: right !important;
+}
+
+.tl {
+    text-align: center !important;
+}
+
+.tr {
+    text-align: right !important;
+}
+
+.tc {
+    text-align: center !important;
+}
+
+.hide {
+    display: none;
+}
+
+#app {
+    height: 100%;
+}
+
+.sidebar {
+    transition: width 0.28s;
+    width: $sideBarWidth !important;
+    background-color: $sideBarBgColor;
+    height: 100%;
+    position: fixed;
+    font-size: 0px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    overflow: hidden;
+}
+
+.container {
+    @include clearfix;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    .c-wrapper {
+        position: relative;
+        min-height: 100%;
+        margin-left: $sideBarWidth;
+        transition: margin-left .28s;
+    }
+
+    .app-container {
+        padding: 20px;
+    }
+}
+
+// margin
+.mt-15 {
+    margin-top: 15px;
+}
+
+.kj-image__preview {
+    .el-image {
+        margin-right: 5px;
+        border: 1px dashed #c0ccda;
+        border-radius: 6px;
+        max-width: 100px;
+    }
+}
+
+.el-image-viewer__close {
+    color: #fff;
+}
+
+.el-form-item__content .line {
+    text-align: center;
+}

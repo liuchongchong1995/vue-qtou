@@ -1,0 +1,20 @@
+// sidebar
+$sideBarWidth: 256px;
+$sideBarBgColor: rgba(60, 75, 100, 1);
+$sideBarMenuTextColor:rgba(255, 255, 255, 0.8);
+$sideBarMenuActiveTextColor:white;
+$sideBarMenuActiveBgColor:rgb(38, 52, 69);
+$sideBarMenuHoverColor:rgba(38, 52, 69, 1);
+$sideBarSubMenuBgColor: rgba(0, 0, 0, .2);
+$sideBarSubMenuActiveText: white;
+
+:export {
+    sideBarWidth: $sideBarWidth;
+    sideBarBgColor: $sideBarBgColor;
+    sideBarMenuTextColor: $sideBarMenuTextColor;
+    sideBarMenuActiveTextColor: $sideBarMenuActiveTextColor;
+    sideBarMenuActiveBgColor: $sideBarMenuActiveBgColor;
+    sideBarSubMenuBgColor: $sideBarSubMenuBgColor;
+    sideBarMenuHoverColor: $sideBarMenuHoverColor;
+    sideBarSubMenuActiveText: $sideBarSubMenuActiveText;
+}
