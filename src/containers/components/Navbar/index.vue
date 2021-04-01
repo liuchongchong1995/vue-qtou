@@ -1,6 +1,36 @@
 <template>
     <div class="navbar">
-        导航栏
+        <el-dropdown class="logo-container hover-effect" trigger="click">
+            <div class="logo-wrapper">
+                <img :src="logo+'?imageView2/1/w/86/h/33'" class="logo-avatar">
+                <span>ProjectWK</span>
+                <i class="el-icon-caret-bottom" />
+            </div>
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item divided>
+                    <span style="display:block;">
+                        退出
+                    </span>
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+            <el-menu-item index="1">处理中心</el-menu-item>
+            <el-submenu index="2">
+                <template slot="title">我的工作台</template>
+                <el-menu-item index="2-1">选项1</el-menu-item>
+                <el-menu-item index="2-2">选项2</el-menu-item>
+                <el-menu-item index="2-3">选项3</el-menu-item>
+                <el-submenu index="2-4">
+                    <template slot="title">选项4</template>
+                    <el-menu-item index="2-4-1">选项1</el-menu-item>
+                    <el-menu-item index="2-4-2">选项2</el-menu-item>
+                    <el-menu-item index="2-4-3">选项3</el-menu-item>
+                </el-submenu>
+            </el-submenu>
+            <el-menu-item index="3" disabled>消息中心</el-menu-item>
+            <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+        </el-menu>
     </div>
 </template>
 
@@ -10,6 +40,12 @@
     export default {
         name: 'Navbar',
         components: { 
+        },
+        data() {
+            return {
+                countData: {},
+                logo: require('@/assets/images/logo.png')
+            }
         },
         computed: {
             ...mapGetters([ 
@@ -26,67 +62,31 @@
 
 <style lang="scss" scoped>
 .navbar {
-    height: 50px;
-    overflow: hidden;
+    height: 70px;
+    padding:18px 30px 18px 12px;
     position: relative;
-    background: #fff;
-    border-bottom: 1px solid rgba(0,21,41,0.08);
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px 0px rgba(159, 159, 159, 0.5);
+    overflow: hidden; 
+    
+    .logo-container{
+        height:33px;
+        &.hover-effect {
+            cursor: pointer;
+            transition: background .3s;
 
-    .hamburger-container {
-        line-height: 46px;
-        height: 100%;
-        float: left;
-        cursor: pointer;
-        transition: background .3s;
-        -webkit-tap-highlight-color:transparent;
-
-        &:hover {
-            background: rgba(0, 0, 0, .025)
-        }
-    }
-    .right-menu {
-        float: right;
-        height: 100%;
-        line-height: 50px;
-
-        .right-menu-item {
-            display: inline-block;
-            padding: 0 8px;
-            height: 100%;
-            font-size: 18px;
-            color: #5a5e66;
-            vertical-align: text-bottom;
-
-            &.hover-effect {
-                cursor: pointer;
-                transition: background .3s;
-
-                &:hover {
-                    background: rgba(0, 0, 0, .025)
-                }
+            &:hover {
+                background: rgba(0, 0, 0, .025)
             }
         }
-    }
-    .avatar-container {
-        margin-right: 30px;
-
-        .avatar-wrapper {
-            position: relative;
-
-            .user-avatar {
-                cursor: pointer;
-                width: 40px;
-                height: 40px;
-                border-radius: 10px;
-            }
-
-            .el-icon-caret-bottom {
-                cursor: pointer;
-                position: absolute;
-                right: -20px;
-                top: 25px;
-                font-size: 12px;
-            }
+        .logo-wrapper{
+            width:100%;
+            height:100%;
+        }
+        .logo-avatar{
+            width:86px;
+            height:33px;
+            margin-right: 17px;
         }
     }
 }
