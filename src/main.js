@@ -9,7 +9,7 @@ import '@/plugins/element.js';
 import '@/components/Card';
 import '@/components/global.js';
 import '@/assets/scripts/permission';
-import '@/assets/icons';  
+import '@/assets/icon/index.css';  
 import goBack from '@/assets/scripts/utils/goBack.js'; 
 
 Vue.prototype.$goBack = goBack;
