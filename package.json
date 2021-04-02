@@ -57,5 +57,9 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "engines": {
+    "node": ">= 12.16.1",
+    "npm": ">= 7.6.2"
+  }
 }
