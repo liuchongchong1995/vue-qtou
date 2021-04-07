@@ -1,8 +1,8 @@
 @import "mixins/_reset.scss";
 @import "mixins/_mixins.scss";
-@import './transition.scss';
-@import "./variables.scss"; 
-@import './card.scss';  
+@import "./transition.scss";
+@import "./variables.scss";
+@import "./card.scss";
 html {
     height: 100%;
     box-sizing: border-box;
@@ -14,7 +14,8 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+        Microsoft YaHei, Arial, sans-serif;
 }
 
 a {
@@ -81,7 +82,7 @@ a:hover {
         position: relative;
         min-height: 100%;
         margin-left: $sideBarWidth;
-        transition: margin-left .28s;
+        transition: margin-left 0.28s;
     }
 
     .app-container {
@@ -110,3 +111,6 @@ a:hover {
 .el-form-item__content .line {
     text-align: center;
 }
+// .el-dialog__body {
+//     padding: 0 !important;
+// }

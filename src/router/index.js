@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from "vue";
+import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-import Container from '@/containers';
+import Container from "@/containers";
 
 // 路由模块引入
 
@@ -12,79 +12,133 @@ import Container from '@/containers';
  */
 export const constantRoutes = [
     {
-        path: '/redirect',
+        path: "/redirect",
         component: Container,
         hidden: true,
-        name: 'redirect',
+        name: "redirect",
         children: [
-          {
-            path: '/redirect/:path(.*)',
-            //component: () => import('@/views/redirect/index')
-          }
+            {
+                path: "/redirect/:path(.*)"
+                //component: () => import('@/views/redirect/index')
+            }
         ]
     },
     {
-        path: '/404',
-        component: () => import('@/views/error/404'),
+        path: "/404",
+        component: () => import("@/views/error/404"),
         hidden: true,
-        name: '404',
+        name: "404",
         meta: {
-            title: '404 - 页面找不到'
+            title: "404 - 页面找不到"
         }
     },
     {
-        path: '/401',
-        component: () => import('@/views/error/401'),
+        path: "/401",
+        component: () => import("@/views/error/401"),
         hidden: true,
-        name: '401',
+        name: "401",
         meta: {
-            title: '401 - 没有访问权限'
+            title: "401 - 没有访问权限"
         }
     },
     {
-        path: '/500',
-        component: () => import('@/views/error/500'),
+        path: "/500",
+        component: () => import("@/views/error/500"),
         hidden: true,
-        name: '500',
+        name: "500",
         meta: {
-            title: '500 - 网站错误'
+            title: "500 - 网站错误"
         }
     },
     {
-        path: '/login',
-        component: () => import('@/views/login/index'),
+        path: "/login",
+        component: () => import("@/views/login/index"),
         hidden: true,
-        name: '登录',
+        name: "登录",
         meta: {
-            title: '登录'
-        }
-    }, 
-    {
-        path: '/logout',
-        component: () => import('@/views/login/logout'),
-        hidden: true,
-        name: '退出登录',
-        meta: {
-            title: '退出登录'
+            title: "登录"
         }
     },
-     {
-        path: '/',
+    {
+        path: "/logout",
+        component: () => import("@/views/login/logout"),
+        hidden: true,
+        name: "退出登录",
+        meta: {
+            title: "退出登录"
+        }
+    },
+    {
+        path: "/",
         component: Container,
-        redirect: '/dashboard',
+        redirect: "/dashboard",
         children: [
-          {
-                path: 'dashboard',
-                component: () => import('@/views/dashboard/index'),
-                name: 'Dashboard',
+            {
+                path: "dashboard",
+                component: () => import("@/views/dashboard/index"),
+                name: "Dashboard",
                 meta: {
-                    title: '首页',
+                    title: "首页",
                     // icon: 'dashboard',
                     affix: true
                 }
-          }
+            }
         ]
+    },
+    {
+        path: "/file",
+        component: () => import("@/views/file/index"),
+        hidden: true,
+        name: "主体",
+        meta: {
+            title: "主体"
+        }
+    },
+    {
+        path: "/organization/index",
+        component: () => import("@/views/organization/index"),
+        hidden: true,
+        name: "组织",
+        meta: {
+            title: "组织"
+        }
     }
+    // {
+    //     path: "/file/componets/UploadDocument",
+    //     component: () => import("@/views/file/componets/UploadDocument/index"),
+    //     hidden: true,
+    //     name: "上传文档",
+    //     meta: {
+    //         title: "上传文档"
+    //     }
+    // },
+    // {
+    //     path: "/file/componets/MoveDocument",
+    //     component: () => import("@/views/file/componets/MoveDocument/index"),
+    //     hidden: true,
+    //     name: "移动文件",
+    //     meta: {
+    //         title: "移动文件"
+    //     }
+    // },
+    // {
+    //     path: "/file/UploadingPeriod",
+    //     component: () => import("@/views/file/componets/UploadingPeriod/index"),
+    //     hidden: true,
+    //     name: "上传中",
+    //     meta: {
+    //         title: "上传中"
+    //     }
+    // },
+    // {
+    //     path: "/file/componets/UploadingPeriod",
+    //     component: () => import("@/views/file/componets/NewDialog/index"),
+    //     hidden: true,
+    //     name: "新建",
+    //     meta: {
+    //         title: "新建"
+    //     }
+    // }
 ];
 
 /**
@@ -93,17 +147,18 @@ export const constantRoutes = [
 export const asyncRoutes = [
     // 404 page must be placed at the end !!!
     {
-        path: '*',
-        redirect: '/404',
+        path: "*",
+        redirect: "/404",
         hidden: true
     }
 ];
 
-const createRouter = () => new VueRouter({
-  mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
-});
+const createRouter = () =>
+    new VueRouter({
+        mode: "history", // require service support
+        scrollBehavior: () => ({ y: 0 }),
+        routes: constantRoutes
+    });
 
 const router = createRouter();
 

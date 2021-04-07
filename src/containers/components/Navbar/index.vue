@@ -1,34 +1,32 @@
 <template>
     <div class="navbar">
         <el-dropdown class="logo-container hover-effect" trigger="click">
-            <div class="logo-wrapper">
-                <img :src="logo+'?imageView2/1/w/86/h/33'" class="logo-avatar">
-                <span>ProjectWK</span>
-                <i class="el-icon-caret-bottom" />
-            </div>
-            <!-- 字体 -->
-            <i class="el-icon-qtou">&#xe689;</i>
-            <!-- end -->
-            <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item divided>
-                    <span style="display:block;">
-                        退出
-                    </span>
-                </el-dropdown-item>
-            </el-dropdown-menu>
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+                <el-submenu index="1">
+                    <template slot="title">ProjectWK</template>
+                    <el-menu-item index="2-1">选项1</el-menu-item>
+                    <el-menu-item index="2-2">选项2</el-menu-item>
+                    <el-menu-item index="2-3">选项3</el-menu-item>
+                </el-submenu>
+                <el-menu-item index="2" >主页</el-menu-item>
+                <el-menu-item index="3" >文档</el-menu-item>
+                <el-menu-item index="4" >权限</el-menu-item>
+                <el-menu-item index="5" >组织</el-menu-item>
+                <el-menu-item index="6" >问答</el-menu-item>
+                <el-menu-item index="7" >分析</el-menu-item>
+                <el-submenu index="8" class="username">
+                    <template slot="title">Linda</template>
+                    <el-menu-item index="1-1">选项1</el-menu-item>
+                    <el-menu-item index="1-2">选项2</el-menu-item>
+                    <el-menu-item index="1-3">选项3</el-menu-item>
+                </el-submenu>
+            </el-menu>
         </el-dropdown>
-        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
-            <el-menu-item index="1">处理中心</el-menu-item>
-            <el-submenu index="2">我的工作台</el-submenu>
-            <el-menu-item index="3" disabled>消息中心</el-menu-item>
-            <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-        </el-menu>
     </div>
 </template>
 
 <script>
     import { mapGetters } from 'vuex'; 
-
     export default {
         name: 'Navbar',
         components: { 
@@ -55,8 +53,8 @@
 
 <style lang="scss" scoped>
 .navbar {
-    height: 70px;
-    padding:18px 30px 18px 12px;
+    height: 68px;
+    // padding:18px 30px 18px 12px;
     position: relative;
     background: #FFFFFF;
     box-shadow: 0px 4px 10px 0px rgba(159, 159, 159, 0.5);
@@ -83,4 +81,27 @@
         }
     }
 }
+.el-menu-demo {
+    left: 125px;
+    .el-submenu {
+    font-size: 20px ;
+
+    }
+    .el-menu-item {
+    font-size: 20px !important;
+    }
+}
+.username {
+    position: absolute;
+    right: -760px;
+
+}
+.el-menu--horizontal{
+    border: none !important;
+    .el-menu-item:not(.is-disabled):hover {
+        color: #1E6FFF;
+        border-bottom-color:#1E6FFF;
+    }
+}
+
 </style>
