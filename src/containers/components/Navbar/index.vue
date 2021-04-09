@@ -1,6 +1,15 @@
+
 <template>
     <div class="navbar">
-        <el-dropdown class="logo-container hover-effect" trigger="click">
+        <router-link 
+            v-for="(item,index) in permission_routes" 
+            v-if="!item.hidden"
+            :key="index"
+            :to="item.path"
+        >
+            {{ item.name }}
+        </router-link>
+        <!-- <el-dropdown class="logo-container hover-effect" trigger="click">
             <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
                 <el-submenu index="1">
                     <template slot="title">ProjectWK</template>
@@ -21,11 +30,11 @@
                     <el-menu-item index="1-3">选项3</el-menu-item>
                 </el-submenu>
             </el-menu>
-        </el-dropdown>
+        </el-dropdown> -->
     </div>
 </template>
 
-<script>
+<script> 
     import { mapGetters } from 'vuex'; 
     export default {
         name: 'Navbar',
@@ -40,6 +49,7 @@
         },
         computed: {
             ...mapGetters([ 
+                'permission_routes'
             ])
         },
         methods: { 

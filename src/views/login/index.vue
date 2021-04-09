@@ -1,42 +1,44 @@
 <template>
-    <div>
-
+    <div class="login">
+        <div class="login-cont">   
+            <div class="login-form"> 
+                <div class="m-login-styleType">  
+                    <a class="m-login-bindBtn" href="javascript:;" @click="submitDataHandle">登录</a>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
-<script>  
+<script>
+    //import settings from '@/assets/scripts/settings';
+
     export default {
         name: 'Login',
+        components: {
+            
+        },
         data() {
             return {
-                redirect: '',
-                otherQuery: {}
+                browserLayer: true,
+                noticeLayer: true,
+                phone:'',
+                password: '',
+                otherQuery: ''
             };
         },
-        created() {
-            //this.getUserInfo();
-        },
-        mounted() {
-        },
-        methods: {
-            getUserInfo() {
-                /* eslint-disable */
+        methods: {  
+            async submitDataHandle() {
+                 
+                this.loginPath('user/login');
+            },
+            loginPath(url) {
                 this.otherQuery = this.getOtherQuery();
-                let param = {
-                    _kp_sso_sign: this.otherQuery.sign,
-                    _kp_sso_token: this.otherQuery.token
-                };
-                if (this.otherQuery.loginWay) {
-                    param.loginWay = this.otherQuery.loginWay;
-                }
-                this.$store.dispatch('user/login', param).then(() => {
-                    this.$router.push({ path: this.redirect || '/', query: this.otherQuery });
-                }).catch(() => { 
-                     this.$router.push({ path: '/login' });
-                });
+                this.$store.dispatch(url);
+                this.$router.push({ path: '/', query: this.otherQuery });
             },
             getOtherQuery() {
                 let query = this.$route.query;
-
+                
                 if (query) {
                     return Object.keys(query).reduce((acc, cur) => {
                         if (cur !== 'redirect') {
@@ -54,3 +56,4 @@
         }
     }
 </script>
+<style lang="scss" src="@/assets/scss/login.scss"></style>

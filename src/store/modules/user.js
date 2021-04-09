@@ -1,3 +1,4 @@
+//import { login, getInfo,loginByCode } from '@/assets/api/user';
 import { getToken, setToken, removeToken } from '@/assets/scripts/utils/auth';
 import router, { resetRouter } from '@/router';
 
@@ -32,6 +33,66 @@ const mutations = {
 };
 
 const actions = {
+    login({ commit }) {
+        commit('SET_TOKEN', '11'); 
+        setToken('999');
+        // return new Promise((resolve, reject) => {
+        //     login(param).then(response => {
+        //         const { data } = response;
+
+        //         commit('SET_TOKEN', data.token);
+        //         setToken(data.token);
+        //         resolve()
+        //     }).catch(error => {
+        //         reject(error);
+        //     });
+        // });
+    },
+    loginByCode({ commit }, param) {
+        return new Promise((resolve, reject) => {
+            loginByCode(param).then(response => {
+                const { data } = response;
+
+                commit('SET_TOKEN', data.token);
+                setToken(data.token);
+                resolve()
+            }).catch(error => {
+                reject(error);
+            });
+        });
+    },
+    getInfo({ commit}) { 
+        return new Promise((resolve, reject) => {
+            const data = {
+                roles: '1'
+            };
+            if (!data) {
+                reject('验证失败，请重新登录。')
+            }
+
+                
+            data.roles = [data.role];
+                
+
+            const { roles } = data;
+
+            if (!roles || roles.length <= 0) {
+                reject('getInfo: roles must be a non-null array!')
+            }
+
+            commit('SET_ROLES', roles)
+
+            resolve(data)
+        });
+    },
+    logout({ commit, dispatch }) {
+        commit('SET_TOKEN', '');
+        commit('SET_ROLES', []);
+        removeToken();
+        resetRouter();
+
+        dispatch('tagsView/delAllViews', null, { root: true }); 
+    },
     resetToken({ commit }) {
         return new Promise(resolve => {
             commit('SET_TOKEN', '');

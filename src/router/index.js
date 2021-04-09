@@ -6,6 +6,8 @@ Vue.use(VueRouter);
 import Container from "@/containers";
 
 // 路由模块引入
+import fileRouter from './modules/file';
+import organizationRouter from './modules/organization';
 
 /**
  * 无权限页面
@@ -67,90 +69,39 @@ export const constantRoutes = [
         meta: {
             title: "退出登录"
         }
-    },
-    {
-        path: "/",
-        component: Container,
-        redirect: "/dashboard",
-        children: [
-            {
-                path: "dashboard",
-                component: () => import("@/views/dashboard/index"),
-                name: "Dashboard",
-                meta: {
-                    title: "首页",
-                    // icon: 'dashboard',
-                    affix: true
-                }
-            }
-        ]
-    },
-    {
-        path: "/file",
-        component: () => import("@/views/file/index"),
-        hidden: true,
-        name: "主体",
-        meta: {
-            title: "主体"
-        }
-    },
-    {
-        path: "/organization/index",
-        component: () => import("@/views/organization/index"),
-        hidden: true,
-        name: "组织",
-        meta: {
-            title: "组织"
-        }
     }
-    // {
-    //     path: "/file/componets/UploadDocument",
-    //     component: () => import("@/views/file/componets/UploadDocument/index"),
-    //     hidden: true,
-    //     name: "上传文档",
-    //     meta: {
-    //         title: "上传文档"
-    //     }
-    // },
-    // {
-    //     path: "/file/componets/MoveDocument",
-    //     component: () => import("@/views/file/componets/MoveDocument/index"),
-    //     hidden: true,
-    //     name: "移动文件",
-    //     meta: {
-    //         title: "移动文件"
-    //     }
-    // },
-    // {
-    //     path: "/file/UploadingPeriod",
-    //     component: () => import("@/views/file/componets/UploadingPeriod/index"),
-    //     hidden: true,
-    //     name: "上传中",
-    //     meta: {
-    //         title: "上传中"
-    //     }
-    // },
-    // {
-    //     path: "/file/componets/UploadingPeriod",
-    //     component: () => import("@/views/file/componets/NewDialog/index"),
-    //     hidden: true,
-    //     name: "新建",
-    //     meta: {
-    //         title: "新建"
-    //     }
-    // }
 ];
 
 /**
  * 有权限页面
  */
 export const asyncRoutes = [
+    
+    {
+        path: '/',
+        component: Container,
+        redirect: '/dashboard',
+        name: '首页',
+        children: [
+          {
+                path: 'dashboard',
+                component: () => import('@/views/dashboard/index'),
+                name: '首页',
+                meta: {
+                    title: '首页', 
+                    affix: true
+                }
+          }
+        ]
+    },
     // 404 page must be placed at the end !!!
     {
         path: "*",
         redirect: "/404",
         hidden: true
-    }
+    },
+    fileRouter,
+    organizationRouter
 ];
 
 const createRouter = () =>

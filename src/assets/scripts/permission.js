@@ -28,15 +28,15 @@ router.beforeEach(async(to, from, next) => {
             NProgress.done();
         } else {
             let hasRoles = store.getters.roles && store.getters.roles.length > 0;
-
+ 
             if (hasRoles) {
                 next();
             } else {
                 try {
                     let { roles } = await store.dispatch('user/getInfo');
-
+ 
                     let accessRoutes = await store.dispatch('permission/generateRoutes', roles);
-
+  
                     router.addRoutes(accessRoutes)
                     next({ ...to, replace: true });
                 } catch (error) {
@@ -51,9 +51,8 @@ router.beforeEach(async(to, from, next) => {
     } else {
         if(whiteList.indexOf(to.path) !== -1) {
             next();
-        } else {    // 如果没有登陆
-             next();
-            //next(`/login?redirect=${to.fullPath.replace('?', '&')}`);
+        } else {    // 如果没有登陆 
+            next(`/login?redirect=${to.fullPath.replace('?', '&')}`);
            
             NProgress.done();
         }
