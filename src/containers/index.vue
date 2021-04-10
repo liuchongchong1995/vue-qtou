@@ -45,12 +45,8 @@
 
     .c-wrapper {
         position: relative;
-        height: 100%;
-        @include clearfix;
-
-        &.mobile.openSidebar {
-            position: fixed; top: 0;
-        }
+        height: 100%; 
+        @include clearfix; 
     }
     .drawer-bg {
         background: #000;
@@ -60,13 +56,7 @@
         height: 100%;
         position: absolute;
         z-index: 999;
-    }
-    .fixed-header {
-        position: fixed; top: 0; right: 0;
-        z-index: 9;
-        width: calc(100% - #{$sideBarWidth});
-        transition: width 0.28s;
-    }
+    } 
     .fixed-header+.main-body {
         padding-top: 90px;
         min-height: calc(100vh - 90px);
