@@ -14,7 +14,7 @@
         >
             {{ item.name }}
         </router-link> 
-        <i class="el-icon-qtou">&#xe606;</i>
+        <i class="el-icon-qtou">&#xe605;</i>
     </div>
 </template>
 
