@@ -8,6 +8,7 @@ import Container from "@/containers";
 // 路由模块引入
 import fileRouter from './modules/file';
 import organizationRouter from './modules/organization';
+import jurisdictionRouter from './modules/jurisdiction';
 
 /**
  * 无权限页面
@@ -101,7 +102,8 @@ export const asyncRoutes = [
         hidden: true
     },
     fileRouter,
-    organizationRouter
+    organizationRouter,
+    jurisdictionRouter
 ];
 
 const createRouter = () =>

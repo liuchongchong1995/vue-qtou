@@ -10,19 +10,19 @@
 </template>
 
 <script>
-export default {
-    name: "NewDialog",
-    components: {},
-    props: {},
-    data() {
-        return {
-            // 输入框内容
-            content: ""
-        };
-    },
-    computed: {},
-    methods: {}
-};
+    export default {
+        name: "NewDialog",
+        components: {},
+        props: {},
+        data() {
+            return {
+                // 输入框内容
+                content: ""
+            };
+        },
+        computed: {},
+        methods: {}
+    };
 </script>
 
 <style>

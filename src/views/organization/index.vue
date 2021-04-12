@@ -42,12 +42,10 @@
                 <div class="functionBtn">
                     <el-button
                         class="uploadingbtn"
-                        @click="uploadVisible = true"
-                        >上传</el-button
-                    >
-                    <el-button @click="JurisdictionVisible = true"
-                        >权限</el-button
-                    >
+                        @click="uploadVisible = true" >
+                        上传
+                    </el-button>
+                    <el-button @click="JurisdictionVisible = true">权限</el-button>
                     <el-button @click="newVisible = true">新建</el-button>
                     <el-button>下载</el-button>
                     <el-button @click="delVisible = true"> 删除</el-button>
@@ -69,9 +67,7 @@
                     <el-table-column type="selection" width="55">
                     </el-table-column>
                     <el-table-column label="日期" width="120">
-                        <template slot-scope="scope">{{
-                            scope.row.date
-                        }}</template>
+                        <template slot-scope="scope">{{ scope.row.date }}</template>
                     </el-table-column>
                     <el-table-column prop="name" label="姓名" width="120">
                     </el-table-column>
@@ -186,172 +182,172 @@
     </div>
 </template>
 <script>
-import DeleteDocument from "@/components/DeleteDocument/index";
-import MoveDocument from "@/views/file/componets/MoveDocument/index";
-import NewDocument from "@/views/file/componets/NewDocument/index";
-import UploadDocument from "@/views/file/componets/UploadDocument/index";
-import DocumentsJurisdiction from "@/views/file/componets/DocumentsJurisdiction/index";
-import DuplicationDocument from "@/views/file/componets/DuplicationDocument/index";
-export default {
-    components: {
-        DeleteDocument,
-        MoveDocument,
-        NewDocument,
-        DocumentsJurisdiction,
-        UploadDocument,
-        DuplicationDocument
-    },
-    name: "File",
-    data() {
-        return {
-            // 立即上传
-            uploadVisible: false,
-            // 删除
-            delVisible: false,
-            // 新建
-            newVisible: false,
-            // 移动
-            moveVisible: false,
-            // 复制
-            duplicationVisible: false,
-            // 权限分配
-            JurisdictionVisible: false,
-            // 搜索框数据
-            inputList: "",
-            input: "",
-            // 侧边栏数据
-            // 内部表格数据
-            tableData: [
-                {
-                    id: 1,
-                    date: "母基金",
-                    personNumber: "3个",
-                    children: [
-                        {
-                            date: "广东省粤科母基金",
-                            personNumber: "5人"
-                        },
-                        {
-                            date: "广东省粤财母基金",
-                            personNumber: "10人"
-                        },
-                        {
-                            date: "江苏省天富母基金",
-                            personNumber: "10人"
-                        }
-                    ]
-                },
-                {
-                    id: 2,
-                    date: "政府引导基金",
-                    personNumber: "5人",
-                    children: [
-                        {
-                            date: "母基金",
-                            personNumber: "3人"
-                        },
-                        {
-                            date: "母基金",
-                            personNumber: "3人"
-                        }
-                    ]
-                },
-                {
-                    id: 3,
-                    date: "个人投资人",
-                    personNumber: "1个",
-                    children: [
-                        {
-                            date: "一期基金投资人",
-                            personNumber: "7人"
-                        }
-                    ]
-                },
-                {
-                    id: 4,
-                    date: "未分组",
-                    personNumber: "2个",
-                    children: [
-                        {
-                            date: "小程序分享",
-                            personNumber: "10人"
-                        },
-                        {
-                            date: "px端链接分享",
-                            personNumber: "10人"
-                        }
-                    ]
-                }
-            ],
-            tableData1: [
-                {
-                    id: 1,
-                    date: "2016-05-02",
-                    name: "王小虎",
-                    address: "上海市普陀区金沙江路 1518 弄"
-                },
-                {
-                    id: 2,
-                    date: "2016-05-04",
-                    name: "王小虎",
-                    address: "上海市普陀区金沙江路 1517 弄"
-                },
-                {
-                    id: 3,
-                    date: "2016-05-01",
-                    name: "王小虎",
-                    address: "上海市普陀区金沙江路 1519 弄",
-                    hasChildren: true
-                },
-                {
-                    id: 4,
-                    date: "2016-05-03",
-                    name: "王小虎",
-                    address: "上海市普陀区金沙江路 1516 弄"
-                }
-            ],
-            multipleSelection: []
-        };
-    },
-    methods: {
-        load(tree, treeNode, resolve) {
-            setTimeout(() => {
-                resolve([
+    import DeleteDocument from "@/components/DeleteDocument/index";
+    import MoveDocument from "@/views/file/componets/MoveDocument/index";
+    import NewDocument from "@/views/file/componets/NewDocument/index";
+    import UploadDocument from "@/views/file/componets/UploadDocument/index";
+    import DocumentsJurisdiction from "@/views/file/componets/DocumentsJurisdiction/index";
+    import DuplicationDocument from "@/views/file/componets/DuplicationDocument/index";
+    export default {
+        components: {
+            DeleteDocument,
+            MoveDocument,
+            NewDocument,
+            DocumentsJurisdiction,
+            UploadDocument,
+            DuplicationDocument
+        },
+        name: "File",
+        data() {
+            return {
+                // 立即上传
+                uploadVisible: false,
+                // 删除
+                delVisible: false,
+                // 新建
+                newVisible: false,
+                // 移动
+                moveVisible: false,
+                // 复制
+                duplicationVisible: false,
+                // 权限分配
+                JurisdictionVisible: false,
+                // 搜索框数据
+                inputList: "",
+                input: "",
+                // 侧边栏数据
+                // 内部表格数据
+                tableData: [
                     {
-                        id: 31,
-                        date: "2016-05-01",
-                        name: "王小虎",
-                        address: "上海市普陀区金沙江路 1519 弄"
+                        id: 1,
+                        date: "母基金",
+                        personNumber: "3个",
+                        children: [
+                            {
+                                date: "广东省粤科母基金",
+                                personNumber: "5人"
+                            },
+                            {
+                                date: "广东省粤财母基金",
+                                personNumber: "10人"
+                            },
+                            {
+                                date: "江苏省天富母基金",
+                                personNumber: "10人"
+                            }
+                        ]
                     },
                     {
-                        id: 32,
+                        id: 2,
+                        date: "政府引导基金",
+                        personNumber: "5人",
+                        children: [
+                            {
+                                date: "母基金",
+                                personNumber: "3人"
+                            },
+                            {
+                                date: "母基金",
+                                personNumber: "3人"
+                            }
+                        ]
+                    },
+                    {
+                        id: 3,
+                        date: "个人投资人",
+                        personNumber: "1个",
+                        children: [
+                            {
+                                date: "一期基金投资人",
+                                personNumber: "7人"
+                            }
+                        ]
+                    },
+                    {
+                        id: 4,
+                        date: "未分组",
+                        personNumber: "2个",
+                        children: [
+                            {
+                                date: "小程序分享",
+                                personNumber: "10人"
+                            },
+                            {
+                                date: "px端链接分享",
+                                personNumber: "10人"
+                            }
+                        ]
+                    }
+                ],
+                tableData1: [
+                    {
+                        id: 1,
+                        date: "2016-05-02",
+                        name: "王小虎",
+                        address: "上海市普陀区金沙江路 1518 弄"
+                    },
+                    {
+                        id: 2,
+                        date: "2016-05-04",
+                        name: "王小虎",
+                        address: "上海市普陀区金沙江路 1517 弄"
+                    },
+                    {
+                        id: 3,
                         date: "2016-05-01",
                         name: "王小虎",
-                        address: "上海市普陀区金沙江路 1519 弄"
+                        address: "上海市普陀区金沙江路 1519 弄",
+                        hasChildren: true
+                    },
+                    {
+                        id: 4,
+                        date: "2016-05-03",
+                        name: "王小虎",
+                        address: "上海市普陀区金沙江路 1516 弄"
                     }
-                ]);
-            }, 1000);
+                ],
+                multipleSelection: []
+            };
         },
-        newCancle() {
-            this.newVisible = false;
-        },
-        newConfirm() {
-            this.newVisible = false;
-        },
-        delCancle() {
-            this.delVisible = false;
-        },
-        delConfirm() {
-            this.delVisible = false;
-        },
-        handleSelectionChange(val) {
-            this.multipleSelection = val;
-        },
-        filterTag(value, row) {
-            return row.tag === value;
+        methods: {
+            load(tree, treeNode, resolve) {
+                setTimeout(() => {
+                    resolve([
+                        {
+                            id: 31,
+                            date: "2016-05-01",
+                            name: "王小虎",
+                            address: "上海市普陀区金沙江路 1519 弄"
+                        },
+                        {
+                            id: 32,
+                            date: "2016-05-01",
+                            name: "王小虎",
+                            address: "上海市普陀区金沙江路 1519 弄"
+                        }
+                    ]);
+                }, 1000);
+            },
+            newCancle() {
+                this.newVisible = false;
+            },
+            newConfirm() {
+                this.newVisible = false;
+            },
+            delCancle() {
+                this.delVisible = false;
+            },
+            delConfirm() {
+                this.delVisible = false;
+            },
+            handleSelectionChange(val) {
+                this.multipleSelection = val;
+            },
+            filterTag(value, row) {
+                return row.tag === value;
+            }
         }
-    }
-};
+    };
 </script>
 <style lang="scss" scoped>
 @import "@/assets/scss/organization/organization.scss";

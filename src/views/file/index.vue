@@ -11,10 +11,12 @@
                     <el-button
                         class="uploadingbtn"
                         @click="uploadVisible = true"
-                        >上传</el-button
                     >
-                    <el-button @click="JurisdictionVisible = true"
-                        >权限</el-button
+                        上传
+                    </el-button>
+                    <el-button @click="JurisdictionVisible = true">
+                        权限
+                    </el-button
                     >
                     <el-button @click="newVisible = true">新建</el-button>
                     <el-button>下载</el-button>
@@ -43,9 +45,9 @@
                     <el-table-column prop="collect" label="" width="50">
                     </el-table-column>
                     <el-table-column label="#" width="40">
-                        <template slot-scope="scope">{{
-                            scope.row.date
-                        }}</template>
+                        <template slot-scope="scope">
+                            {{ scope.row.date }}
+                        </template>
                     </el-table-column>
 
                     <el-table-column prop="name" label="文件名称" width="526">
@@ -178,205 +180,205 @@
     </div>
 </template>
 <script>
-import DeleteDocument from "@/components/DeleteDocument/index";
-import MoveDocument from "@/views/file/componets/MoveDocument/index";
-import NewDocument from "@/views/file/componets/NewDocument/index";
-import UploadDocument from "@/views/file/componets/UploadDocument/index";
-import DocumentsJurisdiction from "@/views/file/componets/DocumentsJurisdiction/index";
-import DuplicationDocument from "@/views/file/componets/DuplicationDocument/index";
-export default {
-    components: {
-        DeleteDocument,
-        MoveDocument,
-        NewDocument,
-        DocumentsJurisdiction,
-        UploadDocument,
-        DuplicationDocument
-    },
-    name: "File",
-    data() {
-        return {
-            // 立即上传
-            uploadVisible: false,
-            // 删除
-            delVisible: false,
-            // 新建
-            newVisible: false,
-            // 移动
-            moveVisible: false,
-            // 复制
-            duplicationVisible: false,
-            // 权限分配
-            JurisdictionVisible: false,
-            // 搜索框数据
-            inputList: "",
-            // 侧边栏数据
-            data: [
-                {
-                    label: "ProjectWk",
-                    children: [
-                        {
-                            label: "01-行研报告",
-                            children: [
-                                {
-                                    label: "01-行研报告1",
-                                    children: []
-                                }
-                            ]
-                        },
-                        {
-                            label: "02-投资协议",
-                            children: [
-                                {
-                                    label: "02-投资协议1",
-                                    children: []
-                                }
-                            ]
-                        },
-                        {
-                            label: "01-投前资料",
-                            children: [
-                                {
-                                    label: "01-投前资料1",
-                                    children: []
-                                }
-                            ]
-                        },
-                        {
-                            label: "01-投中资料",
-                            children: [
-                                {
-                                    label: "尽调文件",
-                                    children: []
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    label: "标签",
-                    children: [
-                        {
-                            label: "收藏",
-                            children: [
-                                {
-                                    label: "收藏1",
-                                    children: [{}]
-                                }
-                            ]
-                        },
-                        {
-                            label: "回收站",
-                            children: [
-                                {
-                                    label: "回收站1",
-                                    children: [{}]
-                                }
-                            ]
-                        }
-                    ]
+    import DeleteDocument from "@/components/DeleteDocument/index";
+    import MoveDocument from "@/views/file/componets/MoveDocument/index";
+    import NewDocument from "@/views/file/componets/NewDocument/index";
+    import UploadDocument from "@/views/file/componets/UploadDocument/index";
+    import DocumentsJurisdiction from "@/views/file/componets/DocumentsJurisdiction/index";
+    import DuplicationDocument from "@/views/file/componets/DuplicationDocument/index";
+    export default {
+        components: {
+            DeleteDocument,
+            MoveDocument,
+            NewDocument,
+            DocumentsJurisdiction,
+            UploadDocument,
+            DuplicationDocument
+        },
+        name: "File",
+        data() {
+            return {
+                // 立即上传
+                uploadVisible: false,
+                // 删除
+                delVisible: false,
+                // 新建
+                newVisible: false,
+                // 移动
+                moveVisible: false,
+                // 复制
+                duplicationVisible: false,
+                // 权限分配
+                JurisdictionVisible: false,
+                // 搜索框数据
+                inputList: "",
+                // 侧边栏数据
+                data: [
+                    {
+                        label: "ProjectWk",
+                        children: [
+                            {
+                                label: "01-行研报告",
+                                children: [
+                                    {
+                                        label: "01-行研报告1",
+                                        children: []
+                                    }
+                                ]
+                            },
+                            {
+                                label: "02-投资协议",
+                                children: [
+                                    {
+                                        label: "02-投资协议1",
+                                        children: []
+                                    }
+                                ]
+                            },
+                            {
+                                label: "01-投前资料",
+                                children: [
+                                    {
+                                        label: "01-投前资料1",
+                                        children: []
+                                    }
+                                ]
+                            },
+                            {
+                                label: "01-投中资料",
+                                children: [
+                                    {
+                                        label: "尽调文件",
+                                        children: []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: "标签",
+                        children: [
+                            {
+                                label: "收藏",
+                                children: [
+                                    {
+                                        label: "收藏1",
+                                        children: [{}]
+                                    }
+                                ]
+                            },
+                            {
+                                label: "回收站",
+                                children: [
+                                    {
+                                        label: "回收站1",
+                                        children: [{}]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                // 内部表格数据
+                tableData: [
+                    {
+                        date: "1",
+                        name: "TNT报告库备份",
+                        jurisdiction: "8",
+                        time: "2021/02/10",
+                        collect: "★"
+                    },
+                    {
+                        date: "2",
+                        name: "TermSheet备份",
+                        jurisdiction: "",
+                        time: "2021/02/10",
+                        collect: "☆"
+                    },
+                    {
+                        date: "3",
+                        name: "商业计划书备份",
+                        jurisdiction: "",
+                        time: "2021/02/10",
+                        collect: "★"
+                    },
+                    {
+                        date: "4",
+                        name: "尽调资料备份",
+                        jurisdiction: "8",
+                        time: "2021/02/10",
+                        collect: "☆"
+                    },
+                    {
+                        date: "5",
+                        name: "企业运营报告备份",
+                        jurisdiction: "8",
+                        time: "17:00",
+                        collect: "★"
+                    },
+                    {
+                        date: "6",
+                        name: "基金表现报告备份",
+                        jurisdiction: "8",
+                        time: "2021/02/10",
+                        collect: "☆"
+                    },
+                    {
+                        date: "7",
+                        name: "投资人分红备份",
+                        jurisdiction: "",
+                        time: "2021/02/10",
+                        collect: "☆"
+                    },
+                    {
+                        date: "8",
+                        name: "集美优鲜股权投资协议.doc",
+                        jurisdiction: "",
+                        time: "2021/02/10",
+                        collect: "☆"
+                    },
+                    {
+                        date: "9",
+                        name: "集美优鲜尽调清单.xls",
+                        jurisdiction: "",
+                        time: "2021/02/10",
+                        collect: "☆"
+                    },
+                    {
+                        date: "10",
+                        name: "集美优鲜商业计划书.pptx",
+                        jurisdiction: "",
+                        time: "2021/02/10",
+                        collect: "★"
+                    }
+                ],
+                defaultProps: {
+                    children: "children",
+                    label: "label"
                 }
-            ],
-            // 内部表格数据
-            tableData: [
-                {
-                    date: "1",
-                    name: "TNT报告库备份",
-                    jurisdiction: "8",
-                    time: "2021/02/10",
-                    collect: "★"
-                },
-                {
-                    date: "2",
-                    name: "TermSheet备份",
-                    jurisdiction: "",
-                    time: "2021/02/10",
-                    collect: "☆"
-                },
-                {
-                    date: "3",
-                    name: "商业计划书备份",
-                    jurisdiction: "",
-                    time: "2021/02/10",
-                    collect: "★"
-                },
-                {
-                    date: "4",
-                    name: "尽调资料备份",
-                    jurisdiction: "8",
-                    time: "2021/02/10",
-                    collect: "☆"
-                },
-                {
-                    date: "5",
-                    name: "企业运营报告备份",
-                    jurisdiction: "8",
-                    time: "17:00",
-                    collect: "★"
-                },
-                {
-                    date: "6",
-                    name: "基金表现报告备份",
-                    jurisdiction: "8",
-                    time: "2021/02/10",
-                    collect: "☆"
-                },
-                {
-                    date: "7",
-                    name: "投资人分红备份",
-                    jurisdiction: "",
-                    time: "2021/02/10",
-                    collect: "☆"
-                },
-                {
-                    date: "8",
-                    name: "集美优鲜股权投资协议.doc",
-                    jurisdiction: "",
-                    time: "2021/02/10",
-                    collect: "☆"
-                },
-                {
-                    date: "9",
-                    name: "集美优鲜尽调清单.xls",
-                    jurisdiction: "",
-                    time: "2021/02/10",
-                    collect: "☆"
-                },
-                {
-                    date: "10",
-                    name: "集美优鲜商业计划书.pptx",
-                    jurisdiction: "",
-                    time: "2021/02/10",
-                    collect: "★"
-                }
-            ],
-            defaultProps: {
-                children: "children",
-                label: "label"
+            };
+        },
+        methods: {
+            newCancle() {
+                this.newVisible = false;
+            },
+            newConfirm() {
+                this.newVisible = false;
+            },
+            delCancle() {
+                this.delVisible = false;
+            },
+            delConfirm() {
+                this.delVisible = false;
+            },
+            handleSelectionChange(val) {
+                this.multipleSelection = val;
+            },
+            filterTag(value, row) {
+                return row.tag === value;
             }
-        };
-    },
-    methods: {
-        newCancle() {
-            this.newVisible = false;
-        },
-        newConfirm() {
-            this.newVisible = false;
-        },
-        delCancle() {
-            this.delVisible = false;
-        },
-        delConfirm() {
-            this.delVisible = false;
-        },
-        handleSelectionChange(val) {
-            this.multipleSelection = val;
-        },
-        filterTag(value, row) {
-            return row.tag === value;
         }
-    }
-};
+    };
 </script>
 <style lang="scss" scoped>
 @import "@/assets/scss/file/file.scss";

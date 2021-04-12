@@ -1,36 +1,20 @@
 
 <template>
     <div class="navbar">
+        <el-image
+            :src="logo"
+            :fit="fit"
+        >
+        </el-image>
         <router-link 
-            v-for="(item,index) in permission_routes" 
+            v-for="(item,index) in permission_routes"
             v-if="!item.hidden"
             :key="index"
             :to="item.path"
         >
             {{ item.name }}
-        </router-link>
-        <!-- <el-dropdown class="logo-container hover-effect" trigger="click">
-            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
-                <el-submenu index="1">
-                    <template slot="title">ProjectWK</template>
-                    <el-menu-item index="2-1">选项1</el-menu-item>
-                    <el-menu-item index="2-2">选项2</el-menu-item>
-                    <el-menu-item index="2-3">选项3</el-menu-item>
-                </el-submenu>
-                <el-menu-item index="2" >主页</el-menu-item>
-                <el-menu-item index="3" >文档</el-menu-item>
-                <el-menu-item index="4" >权限</el-menu-item>
-                <el-menu-item index="5" >组织</el-menu-item>
-                <el-menu-item index="6" >问答</el-menu-item>
-                <el-menu-item index="7" >分析</el-menu-item>
-                <el-submenu index="8" class="username">
-                    <template slot="title">Linda</template>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                </el-submenu>
-            </el-menu>
-        </el-dropdown> -->
+        </router-link> 
+        <i class="el-icon-qtou">&#xe606;</i>
     </div>
 </template>
 
@@ -44,7 +28,8 @@
             return {
                 activeIndex: '1',
                 countData: {},
-                logo: require('@/assets/images/logo.png')
+                logo: require('@/assets/images/logo.png'),
+                fit: 'fit'
             }
         },
         computed: {

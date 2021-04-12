@@ -36,7 +36,9 @@
                             v-for="(item, index) in 10"
                             :key="index"
                             style="padding: 0 25px"
-                            >√</span
+                        >
+                            √
+                        </span
                         >
                     </el-table-column>
                 </el-table>
@@ -45,97 +47,97 @@
     </div>
 </template>
 <script>
-export default {
-    data() {
-        return {
-            // 侧边栏数据
-            data: [
-                {
-                    label: "ProjectWk",
-                    children: [
-                        {
-                            label: "01-行研报告",
-                            children: [
-                                {
-                                    label: "01-行研报告1",
-                                    children: []
-                                }
-                            ]
-                        },
-                        {
-                            label: "02-投资协议",
-                            children: [
-                                {
-                                    label: "02-投资协议1",
-                                    children: []
-                                }
-                            ]
-                        },
-                        {
-                            label: "01-投前资料",
-                            children: [
-                                {
-                                    label: "01-投前资料1",
-                                    children: []
-                                }
-                            ]
-                        },
-                        {
-                            label: "01-投中资料",
-                            children: [
-                                {
-                                    label: "尽调文件",
-                                    children: []
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
-            defaultProps: {
-                children: "children",
-                label: "label"
-            },
-            //   操作
-            operation: [
-                { icon: "", text: "无" },
-                { icon: "", text: "查看" },
-                { icon: "", text: "分享" },
-                { icon: "", text: "下载PDF文件" },
-                { icon: "", text: "下载原始文件" },
-                { icon: "", text: "下载加密文件" },
-                { icon: "", text: "打印" },
-                { icon: "", text: "转存" },
-                { icon: "", text: "上传" },
-                { icon: "", text: "删除" }
-            ],
-            //   table
-            tableData: [
-                {
-                    user: "超级管理员",
-                    organization: "1个/10人",
-                    empty: "√"
+    export default {
+        data() {
+            return {
+                //侧边栏数据
+                data: [
+                    {
+                        label: "ProjectWk",
+                        children: [
+                            {
+                                label: "01-行研报告",
+                                children: [
+                                    {
+                                        label: "01-行研报告1",
+                                        children: []
+                                    }
+                                ]
+                            },
+                            {
+                                label: "02-投资协议",
+                                children: [
+                                    {
+                                        label: "02-投资协议1",
+                                        children: []
+                                    }
+                                ]
+                            },
+                            {
+                                label: "01-投前资料",
+                                children: [
+                                    {
+                                        label: "01-投前资料1",
+                                        children: []
+                                    }
+                                ]
+                            },
+                            {
+                                label: "01-投中资料",
+                                children: [
+                                    {
+                                        label: "尽调文件",
+                                        children: []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                defaultProps: {
+                    children: "children",
+                    label: "label"
                 },
-                {
-                    user: "超级管理员",
-                    organization: "1个/10人",
-                    empty: "√"
-                },
-                {
-                    user: "超级管理员",
-                    organization: "1个/10人",
-                    empty: "√"
-                },
-                {
-                    user: "超级管理员",
-                    organization: "1个/10人",
-                    empty: "√"
-                }
-            ]
-        };
-    },
-    methods: {}
-};
+                //   操作
+                operation: [
+                    { icon: "", text: "无" },
+                    { icon: "", text: "查看" },
+                    { icon: "", text: "分享" },
+                    { icon: "", text: "下载PDF文件" },
+                    { icon: "", text: "下载原始文件" },
+                    { icon: "", text: "下载加密文件" },
+                    { icon: "", text: "打印" },
+                    { icon: "", text: "转存" },
+                    { icon: "", text: "上传" },
+                    { icon: "", text: "删除" }
+                ],
+                //   table
+                tableData: [
+                    {
+                        user: "超级管理员",
+                        organization: "1个/10人",
+                        empty: "√"
+                    },
+                    {
+                        user: "超级管理员",
+                        organization: "1个/10人",
+                        empty: "√"
+                    },
+                    {
+                        user: "超级管理员",
+                        organization: "1个/10人",
+                        empty: "√"
+                    },
+                    {
+                        user: "超级管理员",
+                        organization: "1个/10人",
+                        empty: "√"
+                    }
+                ]
+            };
+        },
+        methods: {}
+    };
 </script>
 <style scoped>
 .box {
