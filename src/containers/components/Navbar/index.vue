@@ -4,6 +4,7 @@
         <el-image
             :src="logo"
             :fit="fit"
+            class="u-icon"
         >
         </el-image>
         <router-link 
@@ -11,10 +12,25 @@
             v-if="!item.hidden"
             :key="index"
             :to="item.path"
+            class="m-nav-list"
         >
             {{ item.name }}
-        </router-link> 
-        <i class="el-icon-qtou">&#xe605;</i>
+        </router-link>
+        <div class="u-user">
+            <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" class="u-user-headportrait">
+            </el-avatar>
+            <el-dropdown class="u-user-name">
+                <span class="el-dropdown-link">
+                    Linda<i class="el-icon-qtou el-icon-arrow-downs">&#xe625;</i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>个人信息</el-dropdown-item>
+                    <el-dropdown-item>修改密码</el-dropdown-item>
+                    <el-dropdown-item>退出登录</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+        </div>
+        <!-- <i class="el-icon-arrow-down el-icon--right"></i> -->
     </div>
 </template>
 
@@ -48,12 +64,13 @@
 
 <style lang="scss" scoped>
 .navbar {
-    height: 68px;
-    // padding:18px 30px 18px 12px;
     position: relative;
+    z-index: 999;
+    height: 68px;
     background: #FFFFFF;
     box-shadow: 0px 4px 10px 0px rgba(159, 159, 159, 0.5);
     overflow: hidden; 
+    display: flex;
     
     .logo-container{
         height:33px;
@@ -75,27 +92,73 @@
             margin-right: 17px;
         }
     }
-}
-.el-menu-demo {
-    left: 125px;
-    .el-submenu {
-    font-size: 20px ;
-
+    .u-icon {
+        width: 86px !important;
+        height: 33px;
+        align-self: center;
+        margin: {
+            left: 20px;
+            right: 194px;
+        }
     }
-    .el-menu-item {
-    font-size: 20px !important;
-    }
-}
-.username {
-    position: absolute;
-    right: -760px;
+    .m-nav-list{
+        align-self: center;
+        height: 54px;
+        line-height: 54px;
+        color: #BBBBBB;
+        font: {
+            size: 22px;
+        }
+        padding: 0 6px;
+        margin: {
+            right: 58px;
+        }
+        border: {
+            bottom: 2px solid #fff;
+        }
+        white-space:nowrap;
 
-}
-.el-menu--horizontal{
-    border: none !important;
-    .el-menu-item:not(.is-disabled):hover {
-        color: #1E6FFF;
-        border-bottom-color:#1E6FFF;
+        &:hover {
+            color: #1E6FFF;
+            border: {
+                bottom: 2px solid #1E6FFF;
+            }
+        }
+    }
+    .u-user{
+        align-self: center;
+        margin: {
+            left: auto;
+        }
+        display: flex;
+        &-headportrait{
+            width: 40px;
+            height: 40px;
+            align-self: center;
+        }
+        &-name{
+            align-self: center;
+            margin: {
+                left: 8px;
+                right: 28px;
+            };
+            .el-dropdown-link {
+                cursor: pointer;
+                color: #BBBBBB;
+                font: {
+                    size: 16px;
+                }
+            }
+            .el-icon-arrow-downs {
+                color: #6B6B6B;
+                margin: {
+                    left: 4px;
+                }
+                font: {
+                    size: 14px;
+                }
+            }
+        }
     }
 }
 
