@@ -381,5 +381,5 @@
     };
 </script>
 <style lang="scss" scoped>
-@import "@/assets/scss/file/file.scss";
+    @import "@/assets/scss/file/file.scss";
 </style>
