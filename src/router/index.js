@@ -107,7 +107,7 @@ export const asyncRoutes = [
 ];
 
 const createRouter = () =>
-    new VueRouter({
+    new VueRouter({ 
         mode: "history", // require service support
         scrollBehavior: () => ({ y: 0 }),
         routes: constantRoutes
