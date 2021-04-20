@@ -1,0 +1,136 @@
+@import "../mixins/_reset.scss";
+@import "../mixins/_mixins.scss";
+@import "../mixins/_variable.scss";
+
+#l-jution {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    
+    .l-aside-who{
+        width: 232px !important;
+    }
+
+    .l-aside-wht{
+        width: 403px !important;
+    }
+
+    #l-aside{
+        height: 100%;
+        background: #fff;
+
+        .l-aside-tab{
+            padding: {
+                top: 25px;
+            };
+
+            &-first{
+                padding-top: 22px;
+            }
+
+            &-second{
+                padding: {
+                    top: 28px;
+                    left: 16px
+                };
+            }
+        }
+    }
+
+    #l-main{
+        padding: 20px;
+
+        .l-main{
+
+            &-public{
+                background: #fff;
+                border-radius: 5px;
+                min-height: calc(100vh - 108px);
+            }
+    
+            &-screen{
+                padding: 10px 0 0;
+            }
+    
+            &-group{
+                padding: {
+                    top: 34px;
+                    left: 25px;
+                };
+            }
+
+            &-option{
+                padding: {
+                    left: 36px;
+                    top: 30px;
+                };
+
+                &-head{
+                    display: flex;
+                    padding-left: 26px;
+                    margin-right: 20px;
+                    border: {
+                        bottom: 2px solid #c8dcff;
+                    };
+
+                    &-name{
+                        align-self: center;
+                        line-height: 42px;
+                        color: #1E6FFF;
+                        font: {
+                            size: 20px;
+                        };
+
+                        & i{
+                            font-size: 19px;
+                            margin-right: 9px;
+                        }
+                    }
+
+                    &-btn{
+                        align-self: center;
+                        margin-left: auto;
+                        display: flex;
+
+                        & p{
+                            padding-left: 12px;
+                            align-self: center;
+                            line-height: 42px;
+                            color: $color;
+                            font: {
+                                size: 20px;
+                            };
+                            cursor: pointer;
+                        }
+
+                        &-style{
+                            
+                            & i{
+                                margin-right: 9px;
+                                font: {
+                                    size: 8px;
+                                    weight: bold;
+                                };
+                            }
+
+                            &+p{
+                                color: #C4C4C4;
+                            }
+                        }
+                    }
+                }
+
+                &-edit{
+                    padding-right: 20px;
+                }
+
+                &-orgin{
+                    padding-top: 38px;
+                }
+            }
+        }
+    }
+}

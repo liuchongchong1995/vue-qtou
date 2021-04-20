@@ -5,27 +5,27 @@
 </template>
 
 <script>
-export default {
-    name: "DeleteDialog",
-    components: {},
-    props: {
-        visible: Boolean
-    },
-    data() {
-        return {};
-    },
-    computed: {},
-    methods: {
-        // 取消事件
-        cancel() {
-            this.$emit("cancel");
+    export default {
+        name: "DeleteDialog",
+        components: {},
+        props: {
+            visible: Boolean
         },
-        //    确定事件
-        confirm() {
-            this.$emit("confirm");
+        data() {
+            return {};
+        },
+        computed: {},
+        methods: {
+            // 取消事件
+            cancel() {
+                this.$emit("cancel");
+            },
+            //    确定事件
+            confirm() {
+                this.$emit("confirm");
+            }
         }
-    }
-};
+    };
 </script>
 
 <style>
