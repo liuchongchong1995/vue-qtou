@@ -45,7 +45,7 @@
 
     .c-wrapper {
         position: relative;
-        height: 100%; 
+        // height: 100%; 
         @include clearfix; 
     }
     .drawer-bg {
@@ -58,8 +58,8 @@
         z-index: 999;
     } 
     .fixed-header+.main-body {
-        padding-top: 90px;
-        min-height: calc(100vh - 90px);
+        padding-top: 68px;
+        min-height: calc(100vh - 68px);
     }
 
     .hideSidebar .fixed-header {

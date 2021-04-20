@@ -23,11 +23,11 @@
     .main-body {
         position: relative;
         width: 100%;
-        min-height: calc(100vh - 56px);
+        min-height: calc(100vh - 68px);
         overflow: hidden;
     }
     .fixed-header+.main-body {
-        padding-top: 56px;
+        padding-top: 68px;
     }
 </style>
 
