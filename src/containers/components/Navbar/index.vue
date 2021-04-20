@@ -7,15 +7,17 @@
             class="u-icon"
         >
         </el-image>
-        <router-link 
-            v-for="(item,index) in permission_routes"
-            v-if="!item.hidden"
-            :key="index"
-            :to="item.path"
-            class="m-nav-list"
-        >
-            {{ item.name }}
-        </router-link>
+        <ul class="nav-list"> 
+            <router-link
+                tag="li"
+                v-for="(item,index) in routerArr" 
+                :key="index"
+                class="m-nav-list"
+                :to="item.path"
+            >
+                {{ item.name }}
+            </router-link>
+        </ul>
         <div class="u-user">
             <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" class="u-user-headportrait">
             </el-avatar>
@@ -44,6 +46,7 @@
             return {
                 activeIndex: '1',
                 countData: {},
+                routerArr: [],
                 logo: require('@/assets/images/logo.png'),
                 fit: 'fit'
             }
@@ -52,6 +55,17 @@
             ...mapGetters([ 
                 'permission_routes'
             ])
+        },
+        created() {
+            this.permission_routes.forEach(item=>{
+                if(!item.hidden) { 
+                    if(item.path == '/') {
+                        item.path = '/dashboard'
+                    }
+                    this.routerArr.push(item);
+                    
+                }
+            })
         },
         methods: { 
             async logout() {
@@ -101,30 +115,27 @@
             right: 194px;
         }
     }
-    .m-nav-list{
-        align-self: center;
-        height: 54px;
-        line-height: 54px;
-        color: #BBBBBB;
-        font: {
-            size: 22px;
-        }
-        padding: 0 6px;
-        margin: {
-            right: 58px;
-        }
-        border: {
-            bottom: 2px solid #fff;
-        }
-        white-space:nowrap;
-
-        &:hover {
-            color: #1E6FFF;
-            border: {
-                bottom: 2px solid #1E6FFF;
+    .nav-list{
+        display: flex;
+        .m-nav-list{
+            align-self: center; 
+            font-size: 20px;
+            margin-right: 58px;
+            white-space:nowrap;
+            height: 54px;
+            padding: 0 6px;
+            cursor: pointer;
+            line-height: 54px; 
+            border-bottom: 2px solid #fff; 
+            color: #BBBBBB; 
+            &.router-link-active ,
+            &:hover{
+                color: #1E6FFF;
+                border-bottom: 2px solid #1E6FFF;
             }
         }
     }
+    
     .u-user{
         align-self: center;
         margin: {
